@@ -1,5 +1,5 @@
 {
-  "name": "@vidstack/react",
+  "name": "@vimto/vidstack-react",
   "version": "1.12.13",
   "description": "UI component library for building high-quality, accessible video and audio experiences on the web.",
   "license": "MIT",
@@ -65,11 +65,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/vidstack/player.git",
+    "url": "https://github.com/vimto/vidstack-player.git",
     "directory": "packages/react"
   },
   "bugs": {
-    "url": "https://github.com/vidstack/player/issues"
+    "url": "https://github.com/vimto/vidstack-player/issues"
   },
   "exports": {
     ".": "./src/index.ts",

@@ -89,11 +89,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/vidstack/player.git",
+    "url": "https://github.com/vimto/vidstack-player.git",
     "directory": "packages/vidstack"
   },
   "bugs": {
-    "url": "https://github.com/vidstack/player/issues"
+    "url": "https://github.com/vimto/vidstack-player/issues"
   },
   "exports": {
     ".": "./src/index.ts",
