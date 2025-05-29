@@ -22,7 +22,7 @@ const require = createRequire(import.meta.url),
   skippedPackages = [],
   currentVersion = require('../package.json').version,
   packagesDir = fs.readdirSync(path.resolve(__dirname, '../packages')),
-  packages = packagesDir.filter((pkg) => !pkg.startsWith('.')),
+  packages = packagesDir.filter((pkg) => pkg == 'react'),
   preId =
     args.preid || (semver.prerelease(currentVersion) && semver.prerelease(currentVersion)?.[0]),
   versionIncrements = [
@@ -98,7 +98,7 @@ async function main() {
   }
 
   if (isCDNOnly) {
-    await publishCDN(targetVersion);
+    // await publishCDN(targetVersion);
     return;
   }
 
@@ -129,16 +129,16 @@ async function main() {
   const tag = `v${targetVersion}${isNext ? '-next' : ''}`;
   await runIfNotDry('git', ['tag', tag]);
 
-  step('Generating changelog...');
-  await run('pnpm', ['changelog']);
-  await runIfNotDry('git', ['add', '-A']);
-  await runIfNotDry('git', ['commit', '-m', 'chore(release): update changelog']);
+  // step('Generating changelog...');
+  // await run('pnpm', ['changelog']);
+  // await runIfNotDry('git', ['add', '-A']);
+  // await runIfNotDry('git', ['commit', '-m', 'chore(release): update changelog']);
 
   step('Pushing to GitHub...');
-  await runIfNotDry('git', ['push', 'upstream', `refs/tags/${tag}`]);
-  await runIfNotDry('git', ['push', 'upstream', 'main']);
+  await runIfNotDry('git', ['push', 'origin', `refs/tags/${tag}`]);
+  await runIfNotDry('git', ['push', 'origin', 'main']);
 
-  await publishCDN(targetVersion);
+  // await publishCDN(targetVersion);
 
   if (isDryRun) {
     console.log(`\nDry run finished - run git diff to see package changes.`);
