@@ -854,6 +854,8 @@ declare namespace chrome.cast.media {
     tracks: chrome.cast.media.Track[];
     textTrackStyle: chrome.cast.media.TextTrackStyle;
     customData: Object;
+    hlsSegmentFormat: string;
+    hlsVideoSegmentFormat: string;    
   }
 
   export class Media {

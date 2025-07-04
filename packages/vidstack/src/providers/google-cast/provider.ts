@@ -457,6 +457,12 @@ export class GoogleCastProvider implements MediaProviderAdapter {
     request.autoplay = (this.#reloadInfo?.paused ?? savedState?.paused) === false;
     request.currentTime = this.#reloadInfo?.time ?? savedState?.currentTime ?? 0;
 
+    // Hardcode HLS Segment/Stream format to test Brightcove Chromecast support
+    if (src.type === 'application/x-mpegurl') {
+      request.media.hlsSegmentFormat = 'ts';
+      request.media.hlsVideoSegmentFormat = 'mpeg2_ts';
+    }
+
     return request;
   }
 
